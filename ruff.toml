@@ -1,0 +1,12 @@
+line-length = 120
+
+[lint]
+extend-select = ["I"]
+unfixable = ["F401"]  # Disable fix for unused imports (`F401`).
+
+[lint.isort]
+split-on-trailing-comma = false
+
+[format]
+quote-style = "single"
+skip-magic-trailing-comma = true
