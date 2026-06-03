@@ -14,10 +14,8 @@ import sf.analysis as analysis
 import sf.plots as plots
 import sf.subspace as subspace
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 from sf.utils import Run
 
-setup_notebook()
 analysis.make_paper_theme()
 
 figure_path: Path = get_fig_dir('rank_main_information')

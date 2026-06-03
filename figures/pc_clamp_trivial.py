@@ -11,10 +11,8 @@ import sf.perturbations as perturbations
 import sf.plots as plots
 import sf.specific.systematic_perturbations as systematic_perturbations
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 from sf.utils import Run, get_top_indices, run_model
 
-setup_notebook()
 analysis.make_paper_theme()
 
 figure_path: Path = get_fig_dir('pc_clamp_trivial')

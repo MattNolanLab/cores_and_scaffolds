@@ -14,11 +14,9 @@ import sf.attribution.disruption as disruption
 import sf.plots as plots
 from sf import EXPERIMENTS
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 from sf.specific.systematic_perturbations import a_location_correlations
 from sf.utils import Run
 
-setup_notebook()
 analysis.make_paper_theme()
 
 figure_path: Path = get_fig_dir('rank_correlations')

@@ -22,10 +22,8 @@ import sf.subspace as subspace
 import sf.utils as utils
 from sf import EXPERIMENTS
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 from sf.utils import Run
 
-setup_notebook()
 analysis.make_paper_theme()
 
 figure_path: Path = get_fig_dir('rank_main_truncation')

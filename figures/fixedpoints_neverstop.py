@@ -11,10 +11,8 @@ import sf.analysis as analysis
 import sf.fixedpoints as fixedpoints
 import sf.plots as plots
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 from sf.utils import Run
 
-setup_notebook()
 analysis.make_paper_theme()
 
 models: List[Path] = analysis.get_valid_models()

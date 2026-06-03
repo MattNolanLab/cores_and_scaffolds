@@ -10,10 +10,8 @@ import sf.attribution.disruption as disruption
 import sf.plots as plots
 import sf.specific.disruption_perturbations
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 from sf.utils import Run
 
-setup_notebook()
 analysis.make_paper_theme()
 plots.set_font_size(9)
 

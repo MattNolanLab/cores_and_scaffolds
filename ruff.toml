@@ -2,7 +2,7 @@ line-length = 120
 
 [lint]
 extend-select = ["I"]
-unfixable = ["F401"]  # Disable fix for unused imports (`F401`).
+#unfixable = ["F401"]  # Disable fix for unused imports (`F401`).
 ignore = ["E701", "E702"]  # Multiline statements (makes matplotlib more readable)
 
 [lint.isort]

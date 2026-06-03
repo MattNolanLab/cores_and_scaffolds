@@ -30,9 +30,7 @@ FIGURE_PATH: Path = get_fig_dir('dynamics')
 analysis.make_paper_theme()
 
 # %%
-curriculum: analysis.ModelCurriculumPaths = analysis.get_curriculum_exemplar()
-runs: List[Run] = analysis.get_contexts_runs(curriculum.pre)
-RUN: Run = runs[MIDDLE_CONTEXT]
+RUN: Run = analysis.get_run(analysis.get_exemplar_model())
 
 
 MILESTONE_INDICES: List[int] = model_analysis.training_curve_with_episodes(RUN, PARAMS['episodes'])

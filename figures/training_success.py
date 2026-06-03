@@ -10,9 +10,7 @@ import sf.analysis as analysis
 import sf.model_analysis as model_analysis
 import sf.plots as plots
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 
-setup_notebook()
 analysis.make_paper_theme()
 
 figure_path: Path = get_fig_dir('training_success')

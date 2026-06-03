@@ -15,12 +15,10 @@ import sf.analysis as analysis
 import sf.plots as plots
 import sf.utils as utils
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import MIDDLE_CONTEXT, setup_notebook
-from sf.specific.scaling import RZ_MAXES, RZ_MINS
+from sf.specific.scaling import RZ_MAXES, RZ_MINS, MIDDLE_CONTEXT
 from sf.specific.systematic_perturbations import CONDITION_COLOURS, CONDITION_LABELS, load_scaling_df, load_zeroing_df
 from sf.utils import Run
 
-setup_notebook()
 analysis.make_paper_theme()
 
 figure_path: Path = get_fig_dir('single_neurons_exemplar')

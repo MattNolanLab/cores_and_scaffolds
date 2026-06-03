@@ -12,10 +12,8 @@ import sf.plots as plots
 import sf.style as style
 from sf import EXP, EXPERIMENTS
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 from sf.utils import Run
 
-setup_notebook()
 
 analysis.make_paper_theme()
 

@@ -13,11 +13,9 @@ import sf.analysis as analysis
 import sf.plots as plots
 from sf.analysis import get_fig_dir
 from sf.attribution import disruption
-from sf.notebook_setup import setup_notebook
 from sf.plots import y_displacement
 from sf.utils import Run
 
-setup_notebook()
 analysis.make_paper_theme()
 
 figure_path: Path = get_fig_dir('pc_clamp_metrics')

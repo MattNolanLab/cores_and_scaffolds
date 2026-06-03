@@ -14,10 +14,8 @@ import sf.cebra_analysis as cebra_analysis
 import sf.plots as plots
 import sf.style as style
 from sf.analysis import get_fig_dir
-from sf.notebook_setup import setup_notebook
 from sf.utils import Run
 
-setup_notebook()
 
 
 figure_path: Path = get_fig_dir('pc_multiple_speeds')
