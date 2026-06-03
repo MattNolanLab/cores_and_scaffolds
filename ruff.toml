@@ -3,10 +3,13 @@ line-length = 120
 [lint]
 extend-select = ["I"]
 unfixable = ["F401"]  # Disable fix for unused imports (`F401`).
+ignore = ["E701", "E702"]  # Multiline statements (makes matplotlib more readable)
 
 [lint.isort]
 split-on-trailing-comma = false
+known-first-party = ['sf']
 
 [format]
 quote-style = "single"
 skip-magic-trailing-comma = true
+
