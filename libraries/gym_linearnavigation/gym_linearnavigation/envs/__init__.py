@@ -1,0 +1,1 @@
+from gym_linearnavigation.envs.linearnavigation_contextual_v2 import LinearNavigationContextualV2  # noqa
