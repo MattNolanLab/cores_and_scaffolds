@@ -431,6 +431,8 @@ def make_visual_gym_func(full_env_name, cfg=None, env_config=None, render_mode: 
 
 
 def register_custom_envs():
+    import gym_linearnavigation  # noqa: F401
+
     for env_name in envs.registry.keys():
         if ('LinearNavigation' in env_name) or ('SpatialMemory' in env_name) or ('FlipFlop' in env_name):
             register_env(env_name, make_visual_gym_func if 'Visual' in env_name else make_nonvisual_gym_func)
