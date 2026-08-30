@@ -13,13 +13,12 @@ import numpy as np
 import polars as pl
 import torch
 import torch.nn as nn
-from einops import rearrange
 from gym import envs
 from pydantic import BaseModel, validator
 from sample_factory.enjoy import enjoy_with_data
 from sample_factory.envs.env_utils import register_env
 from sample_factory.model.actor_critic import ActorCritic
-from sample_factory.model.core import ModelCore, ModelCoreParametricRNN
+from sample_factory.model.core import ModelCore
 from sample_factory.model.decoder import MlpDecoder
 from sf_examples.train_gym_env import parse_custom_args
 from tqdm.autonotebook import tqdm
@@ -355,11 +354,6 @@ def run_model(
     )
 
     if separate_actor_critic:
-        if isinstance(model.actor_core, ModelCoreParametricRNN) or isinstance(
-            model.critic_core, ModelCoreParametricRNN
-        ):
-            raise NotImplementedError
-
         actor_states, critic_states = torch.cat(data['rnn_states']).chunk(2, dim=1)
         actor_inputs, critic_inputs = torch.cat(data['rnn_inputs']).chunk(2, dim=1)
         run_data = [
@@ -374,33 +368,14 @@ def run_model(
             ),
         ]
     else:
-        run_data: List[Run] = []
-        if isinstance(model.core, ModelCoreParametricRNN):
-            core: ModelCoreParametricRNN = model.core
-            packed_states: torch.Tensor = rearrange(torch.cat(data['rnn_states']), 't n -> t 1 n')  # Only 1 batch
-
-            for branch_idx in range(core.n_branches):
-                for layer_idx in range(core.n_layers):
-                    states: torch.Tensor = core.extract_hxs(packed_states, branch_idx=branch_idx, layer_idx=layer_idx)
-                    states = rearrange(states, 't 1 n -> t n')
-
-                    run_data.append(
-                        Run(
-                            states=states,
-                            inputs=torch.cat(data['rnn_inputs']),
-                            rnn=core.get_cell(branch_idx=branch_idx, layer_idx=layer_idx).cpu(),
-                            **non_state_data,
-                        )
-                    )
-        else:
-            run_data = [
-                Run(
-                    states=torch.cat(data['rnn_states']),
-                    inputs=torch.cat(data['rnn_inputs']),
-                    rnn=extract_rnn(model.core.core).cpu(),
-                    **non_state_data,
-                )
-            ]
+        run_data = [
+            Run(
+                states=torch.cat(data['rnn_states']),
+                inputs=torch.cat(data['rnn_inputs']),
+                rnn=extract_rnn(model.core.core).cpu(),
+                **non_state_data,
+            )
+        ]
 
     if not verbose:
         log.setLevel(logging.DEBUG)
