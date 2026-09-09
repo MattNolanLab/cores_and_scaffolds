@@ -5,11 +5,11 @@ import torch
 from typing import List, Iterable
 from pathlib import Path
 
-from sf.analysis import Run, get_exemplar_model, get_valid_models
+from sf.analysis import Run, get_exemplar_model, get_all_models
 from sf.utils import run_model, disable_jit
 
 
-MODEL_IDS: List[str] = [m.name for m in get_valid_models()]
+MODEL_IDS: List[str] = [m.name for m in get_all_models()]
 EXEMPLAR_MODELS: List[str] = [get_exemplar_model().name]
 
 rule all:

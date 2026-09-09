@@ -6,7 +6,7 @@ import numpy as np
 
 from sf.specific.systematic_perturbations import get_indices, run_perturbations, run_perturbations_scaling
 from sf.attribution.disruption import DisruptionResults, calculate_disruption_scores
-from sf.analysis import Run, get_exemplar_model, get_valid_models, get_other_valid_models
+from sf.analysis import Run, get_exemplar_model, get_valid_models
 from sf.utils import disable_jit
 from typing import Dict, Tuple, List
 

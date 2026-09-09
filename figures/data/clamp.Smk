@@ -1,6 +1,3 @@
-subworkflow data:
-    snakefile: 'data.smk'
-
 from sf import EXPERIMENTS
 workdir: str(EXPERIMENTS)
 
