@@ -27,3 +27,5 @@ podman run --rm -it \
 Open the printed URL then navigate and run the demo notebook at `notebooks/001_demo.ipynb` which shows how to run and analyse a model.
 
 To reproduce figures, navigate to and run the appropriate script in in figures/.
+
+All model checkpoints used in the paper are provided in this repo, but new ones can be trained using `libraries/sample-factory/sample_factory/train.py`.
